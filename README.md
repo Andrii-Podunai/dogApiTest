@@ -12,23 +12,21 @@ This project contains automated tests for the [Dog CEO API](https://dog.ceo/dog-
 ### 1. Documentation
 
 Logic Explanation
+
 1. Status Code Validation:
-The status code validation ensures that the API endpoint is functioning properly by checking if the response status is 200 OK. This confirms that the request was successful and the server responded as expected.
+Ensures the API is responding correctly by checking for a 200 status code.
 
 2. Schema Validation:
-Schema validation checks that the structure of the API's response matches the expected format. It verifies that the response includes the required fields and that these fields are of the correct data types. This helps ensure that the data returned by the API is in the correct format and can be used reliably.
-
-3. Data Validation - Breeds List:
-This test ensures that the API returns a list of dog breeds and that the list is not empty. It confirms that the API is providing the expected data and that there are no issues with data retrieval.
+The test verifies that the response follows a predefined JSON schema. This ensures that the structure of the data returned by the API is consistent, reducing the risk of errors when the data is used by other systems or applications.
 
 4. Data Validation - Specific Breeds:
-The specific breeds validation checks that certain expected dog breeds are included in the API's response. This helps verify that the API is returning a complete and accurate list of breeds.
+Verifies that the breeds list is not empty, includes specific breeds, and contains no duplicates.
 
-5. Data Integrity - No Duplicate Breeds:
-This test checks that there are no duplicate entries in the list of dog breeds. It ensures the integrity of the data, preventing any misleading or redundant information from being included in the response.
+5. Performance Check - Response Time:
+The test measures the response time of the API, verifying that it is below a certain threshold (e.g., 200 milliseconds). This helps ensure that the API meets performance standards, providing a smooth user experience.
 
-6. Performance Check - Response Time:
-The response time check ensures that the API responds quickly, with a response time below a specified threshold (e.g., 200 milliseconds). This is important for maintaining a good user experience, as slow response times can lead to frustration and inefficiency.
+6. Breed Extraction:
+The test script extracts individual dog breeds from the API response. It handles cases where breeds have sub-breeds by combining them into a single string (e.g., "Australian shepherd"). The extracted list is logged and can be stored as an environment variable for further use, making it accessible for other tests or processes.
 
 ### 2. Running the Tests
 
